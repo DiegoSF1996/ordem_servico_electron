@@ -10,7 +10,7 @@
       </b-card-header>
 
       <b-card-body class="text-left">
-        <b-card-title>Cadastro Cliente </b-card-title>
+        <b-card-title>Cadastro Serviço </b-card-title>
         <div>
           <b-row>
             <b-col cols="10">
@@ -315,7 +315,7 @@ export default {
     onReset() {},
     novoCadastro() {
       this.resetCliente();
-      
+
       this.$bvModal.show("modal-1");
     },
     //AJAX

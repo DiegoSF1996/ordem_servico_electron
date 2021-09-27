@@ -4,21 +4,27 @@
       <b-navbar type="dark" variant="dark">
         <b-navbar-nav>
           <b-nav-item href="#">Início</b-nav-item>
-
           <!-- Navbar dropdowns -->
           <b-nav-item-dropdown text="Serviço" left>
-            <b-dropdown-item href="#">EN</b-dropdown-item>
+            <b-dropdown-item to="/Servico" href="#">Serviços</b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown text="Administrativo" left>
-            <b-dropdown-item to="/Cliente" href="#"
+            <b-dropdown-item to="/Cliente" href="#">Cliente</b-dropdown-item>
+            <b-dropdown-item to="/TipoPagamento" href="#"
               >Tipos de Pagamento</b-dropdown-item
+            >
+            <b-dropdown-item to="/TipoServico" href="#"
+              >Tipos de Serviço</b-dropdown-item
+            >
+            <b-dropdown-item to="/TipoProduto" href="#"
+              >Tipos de Produto</b-dropdown-item
             >
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-navbar>
     </div>
-    
+
     <router-view />
   </div>
 </template>
