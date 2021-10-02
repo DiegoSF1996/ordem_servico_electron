@@ -3,19 +3,19 @@ let path = require('path');
 const DAO = require('./DAO');
 
 
-class Cliente extends DAO {
+class TipoServico extends DAO {
     constructor() {
         super();
-        this.tabela = "cliente";
-        this.pk = "cli_codigo";
+        this.tabela = "tipo_servico";
+        this.pk = "tps_codigo";
     }
 
     obter(o) {
-        let query = 'select * from cliente where 1=1 ';
-        if (o.cli_codigo) {
-            query += ' and cli_codigo = ' + cli_codigo;
+        let query = 'select * from tipo_servico where 1=1 ';
+        if (o.tps_codigo) {
+            query += ' and tps_codigo = ' + tps_codigo;
         }
-        query += ' order by cli_descricao desc'
+        query += ' order by tps_descricao desc'
         let db = this.getDB();
         return new Promise(function (resolve, reject) {
             db.serialize(function () {
@@ -31,37 +31,13 @@ class Cliente extends DAO {
 
     }
     alterar(o) {
-        let query = 'update cliente set ';
+        let query = 'update tipo_servico set ';
 
-        if (o.cli_descricao != undefined && o.cli_descricao != '') {
-            query += ' cli_descricao = "' + o.cli_descricao + '"';
+        if (o.tps_descricao != undefined && o.tps_descricao != '') {
+            query += ' tps_descricao = "' + o.tps_descricao + '"';
         }
 
-        if (o.cli_endereco != undefined && o.cli_endereco != '') {
-            query += ', cli_endereco = "' + o.cli_endereco + '"';
-        }
-
-        if (o.cli_cep != undefined && o.cli_cep != '') {
-            query += ', cli_cep = "' + o.cli_cep + '"';
-        }
-
-        if (o.cli_bairro != undefined && o.cli_bairro != '') {
-            query += ', cli_bairro = "' + o.cli_bairro + '"';
-        }
-
-        if (o.cli_telefone != undefined && o.cli_telefone != '') {
-            query += ', cli_telefone = "' + o.cli_telefone + '"';
-        }
-
-        if (o.cli_email != undefined && o.cli_email != '') {
-            query += ', cli_email = "' + o.cli_email + '"';
-        }
-
-        if (o.cli_pj != undefined && o.cli_pj != '') {
-            query += ', cli_pj = ' + o.cli_pj ;
-        }
-
-        query += ' where cli_codigo = ' + o.cli_codigo;
+        query += ' where tps_codigo = ' + o.tps_codigo;
 
 
         let db = this.getDB();
@@ -79,8 +55,8 @@ class Cliente extends DAO {
 
     }
     inserir(o) {
-        let query = 'insert into cliente (cli_descricao, cli_endereco, cli_cep, cli_bairro, cli_telefone, cli_email, cli_pj)'
-            + ' values ("' + o.cli_descricao + '","' + o.cli_endereco + '","' + o.cli_cep + '","' + o.cli_bairro + '","' + o.cli_telefone + '","' + o.cli_email + '","' + o.cli_pj + '")';
+        let query = 'insert into tipo_servico (tps_descricao)'
+            + ' values ("' + o.tps_descricao +'")';
 
         let db = this.getDB();
         return new Promise(function (resolve, reject) {
@@ -97,8 +73,8 @@ class Cliente extends DAO {
 
     }
     excluir(o) {
-        let query = 'delete from cliente where 1 = 1 and ';
-        query += ' cli_codigo = ' + o.cli_codigo;
+        let query = 'delete from tipo_servico where 1 = 1 and ';
+        query += ' tps_codigo = ' + o.tps_codigo;
         let db = this.getDB();
         return new Promise(function (resolve, reject) {
             db.serialize(function () {
@@ -115,4 +91,4 @@ class Cliente extends DAO {
     }
 }
 
-module.exports = new Cliente()
+module.exports = new TipoServico()

@@ -49,7 +49,7 @@
               </b-form-checkbox>
             </template>
             <template v-slot:cell(cli_pj)="data">
-              {{ data.item.cli_pj == "true" ? "Sim" : "Não" }}
+              {{ data.item.cli_pj == true ? "Sim" : "Não" }}
             </template>
             <template v-slot:cell(actions)="data">
               <b-button
@@ -74,105 +74,127 @@
 
       <ModalForm :titulo="'Cadastro de Cliente'">
         <b-form v-on:submit.prevent="onSubmit" @reset="onReset">
-          <b-form-group
-            id="modal_form_label_cli_descricao"
-            label="Nome do Cliente:"
-            label-for="modal_form_input_cli_descricao"
-          >
-            <b-form-input
-              id="modal_form_input_cli_descricao"
-              v-model="oCliente.cli_descricao"
-              placeholder="Digite o nome"
-              required
-            ></b-form-input>
-          </b-form-group>
-          <b-form-group
-            id="modal_form_label_cli_email"
-            label="E-mail:"
-            label-for="modal_form_input_cli_email"
-            description=""
-          >
-            <b-form-input
-              id="modal_form_input_cli_email"
-              v-model="oCliente.cli_email"
-              type="email"
-              placeholder="E-mail"
-              required
-            ></b-form-input>
-          </b-form-group>
-
-          <b-form-group
-            id="modal_form_label_cli_telefone"
-            label="Telefone do Cliente:"
-            label-for="modal_form_input_cli_telefone"
-          >
-            <b-form-input
-              id="modal_form_input_cli_telefone"
-              v-model="oCliente.cli_telefone"
-              placeholder="Digite o telefone"
-              required
-            ></b-form-input>
-          </b-form-group>
-
-          <!-- CEP -->
-          <b-form-group
-            id="modal_form_label_cli_cep"
-            label="CEP do Cliente:"
-            label-for="modal_form_input_cli_cep"
-          >
-            <b-form-input
-              id="modal_form_input_cli_cep"
-              v-model="oCliente.cli_cep"
-              placeholder="Digite o CEP"
-              required
-            ></b-form-input>
-          </b-form-group>
-          <!-- Endereço -->
-          <b-form-group
-            id="modal_form_label_cli_endereco"
-            label="Endereço do Cliente:"
-            label-for="modal_form_input_cli_endereco"
-          >
-            <b-form-input
-              id="modal_form_input_cli_endereco"
-              v-model="oCliente.cli_endereco"
-              placeholder="Digite o endereço"
-              required
-            ></b-form-input>
-          </b-form-group>
-          <!-- Bairro -->
-          <b-form-group
-            id="modal_form_label_cli_bairro"
-            label="Bairro do Cliente:"
-            label-for="modal_form_input_cli_bairro"
-          >
-            <b-form-input
-              id="modal_form_input_cli_bairro"
-              v-model="oCliente.cli_bairro"
-              placeholder="Digite o bairro"
-              required
-            ></b-form-input>
-          </b-form-group>
-
-          <b-form-group id="modal_form_label_cli_pj">
-            <b-form-group label="Cliente é PJ?" v-slot="{ ariaDescribedby }">
-              <b-form-radio
-                v-model="oCliente.cli_pj"
-                :aria-describedby="ariaDescribedby"
-                name="cli_pj"
-                value="true"
-                >Sim</b-form-radio
+          <b-row>
+            <b-col cols="12" sm="12">
+              <b-form-group
+                id="modal_form_label_cli_descricao"
+                label="Nome do Cliente:"
+                label-for="modal_form_input_cli_descricao"
               >
-              <b-form-radio
-                v-model="oCliente.cli_pj"
-                :aria-describedby="ariaDescribedby"
-                name="cli_pj"
-                value="false"
-                >Não</b-form-radio
+                <b-form-input
+                  id="modal_form_input_cli_descricao"
+                  v-model="oCliente.cli_descricao"
+                  placeholder="Digite o nome"
+                  required
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col cols="9" sm="9">
+              <b-form-group
+                id="modal_form_label_cli_email"
+                label="E-mail:"
+                label-for="modal_form_input_cli_email"
+                description=""
               >
-            </b-form-group>
-          </b-form-group>
-
+                <b-form-input
+                  id="modal_form_input_cli_email"
+                  v-model="oCliente.cli_email"
+                  type="email"
+                  placeholder="E-mail"
+                  required
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col cols="3" sm="3">
+              <b-form-group
+                id="modal_form_label_cli_telefone"
+                label="Telefone do Cliente:"
+                label-for="modal_form_input_cli_telefone"
+              >
+                <b-form-input
+                  id="modal_form_input_cli_telefone"
+                  v-model="oCliente.cli_telefone"
+                  placeholder="Digite o telefone"
+                  required
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col cols="3" sm="3">
+              <!-- CEP -->
+              <b-form-group
+                id="modal_form_label_cli_cep"
+                label="CEP:"
+                label-for="modal_form_input_cli_cep"
+              >
+                <b-form-input
+                  id="modal_form_input_cli_cep"
+                  v-model="oCliente.cli_cep"
+                  placeholder="Digite o CEP"
+                  required
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col cols="3" sm="3">
+              <!-- Bairro -->
+              <b-form-group
+                id="modal_form_label_cli_bairro"
+                label="Bairro do Cliente:"
+                label-for="modal_form_input_cli_bairro"
+              >
+                <b-form-input
+                  id="modal_form_input_cli_bairro"
+                  v-model="oCliente.cli_bairro"
+                  placeholder="Digite o bairro"
+                  required
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col cols="6" sm="6">
+              <!-- Endereço -->
+              <b-form-group
+                id="modal_form_label_cli_endereco"
+                label="Endereço do Cliente:"
+                label-for="modal_form_input_cli_endereco"
+              >
+                <b-form-input
+                  id="modal_form_input_cli_endereco"
+                  v-model="oCliente.cli_endereco"
+                  placeholder="Digite o endereço"
+                  required
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+          
+          <b-row>
+            <b-col cols="6" sm="6">
+              <b-form-group id="modal_form_label_cli_pj">
+                <b-form-group
+                  label="Cliente é PJ?"
+                  v-slot="{ ariaDescribedby }"
+                >
+                  <b-form-radio
+                    v-model="oCliente.cli_pj"
+                    :aria-describedby="ariaDescribedby"
+                    name="cli_pj"
+                    value="1"
+                    >Sim</b-form-radio
+                  >
+                  <b-form-radio
+                    v-model="oCliente.cli_pj"
+                    :aria-describedby="ariaDescribedby"
+                    name="cli_pj"
+                    value="0"
+                    >Não</b-form-radio
+                  >
+                </b-form-group>
+              </b-form-group>
+            </b-col>
+          </b-row>
           <b-button type="submit" variant="primary">Salvar</b-button>
           <b-button type="reset" variant="danger">Limpar dados</b-button>
         </b-form>
@@ -296,7 +318,7 @@ export default {
         data = data2;
       }
       let cliente = this.oCliente;
-      this.axios.post("cliente/salvarCliente", cliente).then((response) => {
+      this.axios.post("Cliente/salvarCliente", cliente).then((response) => {
         console.log(response.data);
 
         this.$bvToast.toast(`Registro salvo com sucesso!`, {
@@ -315,18 +337,20 @@ export default {
     onReset() {},
     novoCadastro() {
       this.resetCliente();
-      
+
       this.$bvModal.show("modal-1");
     },
     //AJAX
     async listarTabela() {
-      this.axios.get("cliente/listarTabela").then((response) => {
+      this.axios.get("Cliente/listarTabela").then((response) => {
         this.items = response.data;
       });
     },
     async excluirCliente() {
       let cliente = this.oCliente;
-      this.axios.post("cliente/excluirCliente", cliente).then(() => {});
+      this.axios.post("Cliente/excluirCliente", cliente).then(() => {
+        this.listarTabela();
+      });
     },
   },
 };

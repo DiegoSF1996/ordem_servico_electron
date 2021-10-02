@@ -1,4 +1,4 @@
-let oCliente = require('../model/cliente')
+let oCliente = require('../model/Cliente')
 class ClienteController {
 
     async listarTabela() {

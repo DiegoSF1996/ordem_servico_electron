@@ -1,21 +1,21 @@
-let oCliente = require('../model/cliente')
-class ClienteController {
+let oTipoPagamento = require('../model/TipoPagamento')
+class TipoPagamentoController {
 
     async listarTabela() {
-        return await oCliente.obter({});
+        return await oTipoPagamento.obter({});
     }
-    salvarCliente(dados) {
+    salvarTipoPagamento(dados) {
         //Alterar
-        if (dados.cli_codigo != undefined && dados.cli_codigo != '') {
-            oCliente.alterar(dados);
+        if (dados.tpp_codigo != undefined && dados.tpp_codigo != '') {
+            oTipoPagamento.alterar(dados);
         } else {
             //Novo
-            oCliente.inserir(dados);
+            oTipoPagamento.inserir(dados);
         }
     }
-    excluirCliente(dados) {
-        oCliente.excluir(dados);
+    excluirTipoPagamento(dados) {
+        oTipoPagamento.excluir(dados);
     }
 }
 
-module.exports = new ClienteController()
+module.exports = new TipoPagamentoController()

@@ -18,6 +18,7 @@ app.all('/:controller/:acao', async function (req, res) {
 
     } else {
         msg = 'função não existe'
+        res.status(500).send(msg);
     }
     // } else {
     //msg = 'Controller não existe' + path.join(__dirname, '../bd/ordem_servico.db');
@@ -32,5 +33,4 @@ app.all('/:controller/:acao', async function (req, res) {
 
 app.listen(3000, function () {
 
-    console.log('estou aqui')
 })

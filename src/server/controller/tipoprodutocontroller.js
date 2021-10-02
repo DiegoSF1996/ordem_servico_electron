@@ -1,10 +1,10 @@
-let oTipoProduto = require('../model/tipoproduto')
+let oTipoProduto = require('../model/TipoProduto')
 class TipoProdutoController {
 
     async listarTabela() {
-        return await oCliente.obter({});
+        return await oTipoProduto.obter({});
     }
-    salvarCliente(dados) {
+    salvarTipoProduto(dados) {
         //Alterar
         if (dados.tpprod_codigo != undefined && dados.tpprod_codigo != '') {
             oTipoProduto.alterar(dados);
@@ -13,7 +13,7 @@ class TipoProdutoController {
             oTipoProduto.inserir(dados);
         }
     }
-    excluirCliente(dados) {
+    excluirTipoProduto(dados) {
         oTipoProduto.excluir(dados);
     }
 }

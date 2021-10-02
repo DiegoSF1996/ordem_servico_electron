@@ -1,4 +1,4 @@
-let oTipoServico = require('../model/tiposervico')
+let oTipoServico = require('../model/TipoServico')
 class TipoServicoController {
 
     async listarTabela() {

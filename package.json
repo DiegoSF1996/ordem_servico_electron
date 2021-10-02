@@ -4,22 +4,27 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build",
-    "electron:serve": "vue-cli-service electron:serve",
+    "electron:build": "cross-env NODE_ENV=production vue-cli-service electron:build  --ia32 --x64 -w ",
+    "electron:serve": "cross-env NODE_ENV=development vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
   "main": "background.js",
   "dependencies": {
+    "@isneezy/vue-selectize": "^0.6.1",
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "html2pdf.js": "^0.10.1",
+    "selectize": "^0.12.6",
     "sqlite3": "^5.0.2",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0"
+    "vue-moment": "^4.1.0",
+    "vue-router": "^3.2.0",
+    "vue-select": "^3.13.0",
+    "vue-ui-preloader": "^1.2.1"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.7.0",
@@ -30,6 +35,7 @@
     "axios": "^0.18.0",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^4.3.1",
+    "cross-env": "^7.0.3",
     "electron": "^13.0.0",
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^6.7.2",
