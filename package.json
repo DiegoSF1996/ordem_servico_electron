@@ -1,3 +1,4 @@
+
 {
   "name": "ordem_servico",
   "version": "0.1.0",
@@ -5,9 +6,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "electron:build": "cross-env NODE_ENV=production vue-cli-service electron:build  --ia32 --x64 -w ",
+    "electron:build": "cross-env NODE_ENV=production vue-cli-service electron:build  --ia32  -w ",
     "electron:serve": "cross-env NODE_ENV=development vue-cli-service electron:serve",
-    "postinstall": "electron-builder install-app-deps",
+    "postinstall": "electron-builder install-app-deps --arch=ia32 ", 
     "postuninstall": "electron-builder install-app-deps"
   },
   "main": "background.js",

@@ -25,7 +25,6 @@ async function createWindow() {
       contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION
     }
   })
-  win.maximize();
   let server = require('./server/server.js')
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
@@ -36,6 +35,7 @@ async function createWindow() {
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
   }
+  win.maximize();
 }
 
 // Quit when all windows are closed.
