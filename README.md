@@ -1,5 +1,5 @@
 # ordem_servico
-
+Criei esse projeto com o intuito de contribuir com a empresa de minha cunhada e seu marido, para que pudessem gerir melhor seu négocio.
 ## Project setup
 ```
 yarn install
